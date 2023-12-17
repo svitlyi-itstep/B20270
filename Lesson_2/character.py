@@ -13,6 +13,8 @@ class Character:
                f'Захист: {self.defence}'
 
     def take_damage(self, damage):
+        if damage < 0:
+            raise ValueError('Шкода не може бути від\'ємною!')
         damage = max(damage, 0)
         self.health -= damage
         return damage
